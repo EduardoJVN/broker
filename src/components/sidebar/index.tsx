@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import {
   SidebarProvider,
@@ -7,7 +5,6 @@ import {
   Sidebar,
   SidebarHeader,
   SidebarContent,
-  SidebarFooter,
   SidebarRail,
   SidebarGroup,
   SidebarGroupLabel,
@@ -25,29 +22,11 @@ import {
 } from '@/components/animate-ui/radix/collapsible';
 import {
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
 } from '@/components/animate-ui/radix/dropdown-menu';
 import { NAV_ICONS, NAV_MAIN, NAV_SECOND } from "@/constants/nav"
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from '@/components/ui/avatar';
-import {
   ChevronRight,
-  ChevronsUpDown,
-  Sparkles,
-BadgeCheck,
-CreditCard,
-Bell,
-LogOut,
 } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
 import Navigation from '@/components/navigation';
 const COMPANY_DATA = {
     name: 'Acme Inc',
@@ -75,7 +54,6 @@ export default function SidebarComponent({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isMobile = useIsMobile();
  
   return (
     <SidebarProvider>
@@ -162,108 +140,12 @@ export default function SidebarComponent({
           </SidebarGroup>
           {/* Nav Cuenta */}
         </SidebarContent>
-        <SidebarFooter>
-          {/* Nav User */}
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <SidebarMenuButton
-                    size="lg"
-                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-                  >
-                    <Avatar className="h-8 w-8 rounded-lg">
-                      <AvatarImage
-                        src={DATA.user.avatar}
-                        alt={DATA.user.name}
-                      />
-                      <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                    </Avatar>
-                    <div className="grid flex-1 text-left text-sm leading-tight">
-                      <span className="truncate font-semibold">
-                        {DATA.user.name}
-                      </span>
-                      <span className="truncate text-xs">
-                        {DATA.user.email}
-                      </span>
-                    </div>
-                    <ChevronsUpDown className="ml-auto size-4" />
-                  </SidebarMenuButton>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-                  side={isMobile ? 'bottom' : 'right'}
-                  align="end"
-                  sideOffset={4}
-                >
-                  <DropdownMenuLabel className="p-0 font-normal">
-                    <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                      <Avatar className="h-8 w-8 rounded-lg">
-                        <AvatarImage
-                          src={DATA.user.avatar}
-                          alt={DATA.user.name}
-                        />
-                        <AvatarFallback className="rounded-lg">
-                          CN
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="grid flex-1 text-left text-sm leading-tight">
-                        <span className="truncate font-semibold">
-                          {DATA.user.name}
-                        </span>
-                        <span className="truncate text-xs">
-                          {DATA.user.email}
-                        </span>
-                      </div>
-                    </div>
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                      <Sparkles />
-                      Upgrade to Pro
-                    </DropdownMenuItem>
-                  </DropdownMenuGroup>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                      <BadgeCheck />
-                      Account
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <CreditCard />
-                      Billing
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <Bell />
-                      Notifications
-                    </DropdownMenuItem>
-                  </DropdownMenuGroup>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <LogOut />
-                    Log out
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </SidebarMenuItem>
-          </SidebarMenu>
-          {/* Nav User */}
-        </SidebarFooter>
         <SidebarRail />
       </Sidebar>
  
-      <SidebarInset>
+      <SidebarInset className="flex flex-col flex-1 min-h-screen">
         <Navigation/>
         {children}
-        {/* <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-          </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
-        </div> */}
       </SidebarInset>
     </SidebarProvider>
   );

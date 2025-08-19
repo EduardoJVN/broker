@@ -16,12 +16,15 @@ export default function Navigation() {
       <div className="flex items-center gap-2 px-4 w-full">
         <SidebarTrigger className="-ml-1" />
         <Separator orientation="vertical" className="mr-2 h-4" />
-        <div className='flex items-center justify-center md:justify-end gap-2 w-full aling-center'>
-            <Input type="text" placeholder="Buscar" className="h-9 w-48 md:w-72 lg:w-96" />
-            <Button variant="secondary" size="icon" className="size-9">
+        <div className='flex items-center justify-center md:justify-end gap-2 w-full align-center'>
+            <div className=''>
+              <Input type="text" placeholder="Buscar" className="h-9 w-full md:w-72 lg:w-96" />
+            </div>
+            
+            <Button variant="ghost" size="icon" className="size-9">
               <NAV_ICONS.notification/>
             </Button>
-            <Button variant="secondary" size="icon" className="size-9">
+            <Button variant="ghost" size="icon" className="size-9">
               <NAV_ICONS.messaging/>
             </Button>
             <UserSideBar/>

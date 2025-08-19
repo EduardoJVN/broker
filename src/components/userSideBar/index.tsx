@@ -46,6 +46,7 @@ export default function UserSideBar() {
                     </span>
                 </div>
                 <ChevronsUpDown className="ml-auto size-4" />
+                
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent

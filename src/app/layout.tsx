@@ -26,11 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SidebarComponent>
-          <main className="w-full h-screen">
+          <main className="w-full h-screen p-4 pt-0">
             {children}
           </main>
           {/* <Footer /> */}
