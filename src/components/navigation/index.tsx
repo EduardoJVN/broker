@@ -1,22 +1,33 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import * as React from 'react';
+import { Separator } from '@/components/ui/separator';
+import {
+  SidebarTrigger,
+} from '@/components/animate-ui/radix/sidebar';
+import { NAV_ICONS } from "@/constants/nav"
+import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import Link from 'next/link'
-export default function Navigation() {
-  return(
-         <nav 
-          className="flex flex-col items-center w-25 h-screen gap-6 px-2 py-6 text-center " 
-        >
-          <Avatar className="w-20 h-20">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <Button asChild  variant="link" className=" text-foregound hover:bg-sidebar-border" size="icon">
-            <Link href="/">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                </svg>
-            </Link>
-          </Button>
-        </nav>
-  )
-}
+import UserSideBar from '@/components/userSideBar';
+
+ 
+ 
+export default function Navigation() { 
+  return (
+    <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+      <div className="flex items-center gap-2 px-4 w-full">
+        <SidebarTrigger className="-ml-1" />
+        <Separator orientation="vertical" className="mr-2 h-4" />
+        <div className='flex items-center justify-center md:justify-end gap-2 w-full aling-center'>
+            <Input type="text" placeholder="Buscar" className="h-9 w-48 md:w-72 lg:w-96" />
+            <Button variant="secondary" size="icon" className="size-9">
+              <NAV_ICONS.notification/>
+            </Button>
+            <Button variant="secondary" size="icon" className="size-9">
+              <NAV_ICONS.messaging/>
+            </Button>
+            <UserSideBar/>
+        </div>
+        
+      </div>
+    </header>
+  );
+};
