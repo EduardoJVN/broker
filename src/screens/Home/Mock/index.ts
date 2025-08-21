@@ -45,6 +45,20 @@ export const FAVORITE_DATA = [
     description: "The total balance across all accounts",
     icon: Wallet,
     badget: 36.5
+  },
+  {
+    title: "Favorite 7",
+    value: 1000,
+    description: "The total balance across all accounts",
+    icon: Wallet,
+    badget: 36.5
+  },
+  {
+    title: "Favorite 8",
+    value: 1000,
+    description: "The total balance across all accounts",
+    icon: Wallet,
+    badget: 36.5
   }
 ]
 

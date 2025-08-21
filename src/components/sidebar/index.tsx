@@ -56,10 +56,9 @@ export default function SidebarComponent({
 }>) {
  
   return (
-    <SidebarProvider>
+    <SidebarProvider className="w-full h-full">
       <Sidebar collapsible="icon">
         <SidebarHeader>
-          {/* Team Switcher */}
           <SidebarMenu>
             <SidebarMenuItem>
               <DropdownMenu>
@@ -79,7 +78,6 @@ export default function SidebarComponent({
               </DropdownMenu>
             </SidebarMenuItem>
           </SidebarMenu>
-          {/* Team Switcher */}
         </SidebarHeader>
  
         <SidebarContent>
@@ -143,9 +141,11 @@ export default function SidebarComponent({
         <SidebarRail />
       </Sidebar>
  
-      <SidebarInset className="flex flex-col flex-1 min-h-screen">
-        <Navigation/>
-        {children}
+      <SidebarInset className='h-full overflow-x-auto'>
+        <Navigation />
+        <div className="w-full h-full flex flex-col p-4 pt-0">
+            {children}
+        </div>
       </SidebarInset>
     </SidebarProvider>
   );
